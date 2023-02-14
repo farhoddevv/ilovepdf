@@ -48,6 +48,10 @@
 			"description": "Baned Users Id",
 			"required": false
 		},
+		"LOG_CHANNELL": {
+			"description": "Log Channel",
+			"required": false
+		},
 		"LOG_CHANNEL": {
 			"description": "Database Channel",
 			"required": false
