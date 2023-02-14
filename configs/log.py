@@ -18,6 +18,8 @@ class log:
     
     LOG_CHANNEL = os.environ.get("LOG_CHANNEL", False)  # Log Channel (Optional)
     
+    LOG_CHANNELL = os.environ.get("LOG_CHANNELL", False)  # Log Channel (Optional)
+    
     LOG_FILE = os.environ.get("LOG_FILE", False)  # "nabilanavab.log"
     
     LOG_TEXT = """#newUser @nabilanavab/ILovePDF\n\nID: `{}`\nView Profile: {}"""
@@ -28,10 +30,10 @@ class log:
         if message.chat.type != ChatType.PRIVATE:
             if not await db.is_chat_exist(message.chat.id):
                 await db.add_chat(message.chat.id, message.chat.title)
-                if log.LOG_CHANNEL:
+                if log.LOG_CHANNELL:
                     total = await bot.get_chat_members_count(message.chat.id)
                     await bot.send_message(
-                        chat_id = int(log.LOG_CHANNEL),
+                        chat_id = int(log.LOG_CHANNELL),
                         text = log.LOG_TEXT_C.format(
                             message.chat.id,
                             message.chat.title,
@@ -55,11 +57,11 @@ class log:
                 else:
                     referID = None
                 await db.add_user(message.from_user.id, message.from_user.first_name, lang_code)
-                if log.LOG_CHANNEL:
+                if log.LOG_CHANNELL:
                     for i in range(200):
                         try:
                             return await bot.send_message(
-                                chat_id = int(log.LOG_CHANNEL),
+                                chat_id = int(log.LOG_CHANNELL),
                                 text = log.LOG_TEXT.format(
                                     message.from_user.id,
                                     message.from_user.mention) \
